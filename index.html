@@ -92,7 +92,7 @@
         <button class="btn-piece" onclick="changerDePiece('sejour')">🏠 Séjour</button>
         <button class="btn-piece" onclick="changerDePiece('entree')">🚪 Entrée</button>
         <button class="btn-piece" onclick="changerDePiece('cuisine')">🍳 Cuisine</button>
-        <button class="btn-piece" onclick="changerDePiece('escalier')">🪜 Escalier</button>
+        <button class="btn-piece" onclick="changerDePiece('commun')">🪜 Escalier</button>
         <button class="btn-piece" onclick="changerDePiece('chambre')">🛏️ Chambre</button>
         <button class="btn-piece" onclick="changerDePiece('sdb')">🛁 Salle de bain</button>
     </div>
@@ -117,7 +117,8 @@
                 "entree": {
                     "title": "Entrée",
                     "type": "equirectangular",
-                    "panorama": "entree.JPG"
+                    "panorama": "entree.JPG",
+                    "yaw": 180
                 },
                 "cuisine": {
                     "title": "Cuisine",
@@ -128,7 +129,7 @@
                     "title": "Escalier",
                     "type": "equirectangular",
                     "panorama": "commun.JPG",
-                    "yaw": 45
+                    "yaw": -90
                 },
                 "chambre": {
                     "title": "Chambre",
