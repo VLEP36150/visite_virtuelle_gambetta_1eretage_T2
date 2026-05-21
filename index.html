@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>23 place Gambetta 1er étage - Visite Virtuelle</title>
+    <title>T2_place Gambetta 1er étage - Visite Virtuelle</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <style>
@@ -13,18 +13,18 @@
     </style>
 </head>
 <body>
-    <h1 id="titre-header">23 place Gambetta, 1er étage</h1>
+    <h1 id="titre-header">T2_ 60m2_place Gambetta, 1er étage</h1>
     <div id="panorama"></div>
     <script>
         pannellum.viewer('panorama', {
             "default": { "firstScene": "sejour", "author": "Visite Virtuelle", "sceneFadeDuration": 1000, "autoLoad": true },
             "scenes": {
-                "sejour": { "title": "Séjour", "type": "equirectangular", "panorama": "sejour.jpg", "hotSpots": [{ "pitch": -5, "yaw": 45, "type": "scene", "text": "Aller vers l'entrée", "sceneId": "entree" }] },
-                "entree": { "title": "Entrée", "type": "equirectangular", "panorama": "entree.jpg", "hotSpots": [{ "pitch": -10, "yaw": 180, "type": "scene", "text": "Retour au séjour", "sceneId": "sejour" }, { "pitch": -5, "yaw": 90, "type": "scene", "text": "Aller vers la cuisine", "sceneId": "cuisine" }, { "pitch": -5, "yaw": -90, "type": "scene", "text": "Aller vers l'escalier", "sceneId": "escalier" }] },
-                "cuisine": { "title": "Cuisine", "type": "equirectangular", "panorama": "cuisine.jpg", "hotSpots": [{ "pitch": -5, "yaw": 0, "type": "scene", "text": "Retour à l'entrée", "sceneId": "entree" }] },
-                "escalier": { "title": "Escalier", "type": "equirectangular", "panorama": "escalier.jpg", "hotSpots": [{ "pitch": -5, "yaw": 0, "type": "scene", "text": "Retour à l'entrée", "sceneId": "entree" }, { "pitch": 15, "yaw": 45, "type": "scene", "text": "Monter à la chambre", "sceneId": "chambre" }] },
-                "chambre": { "title": "Chambre", "type": "equirectangular", "panorama": "chambre.jpg", "hotSpots": [{ "pitch": -15, "yaw": 0, "type": "scene", "text": "Descendre l'escalier", "sceneId": "escalier" }, { "pitch": -5, "yaw": 90, "type": "scene", "text": "Aller à la salle de bain", "sceneId": "sdb" }] },
-                "sdb": { "title": "Salle de bain", "type": "equirectangular", "panorama": "sdb.jpg", "hotSpots": [{ "pitch": -5, "yaw": 180, "type": "scene", "text": "Retour à la chambre", "sceneId": "chambre" }] }
+                "sejour": { "title": "Séjour", "type": "equirectangular", "panorama": "sejour.JPG", "hotSpots": [{ "pitch": -5, "yaw": 45, "type": "scene", "text": "Aller vers l'entrée", "sceneId": "entree" }] },
+                "entree": { "title": "Entrée", "type": "equirectangular", "panorama": "commun.JPG", "hotSpots": [{ "pitch": -10, "yaw": 180, "type": "scene", "text": "Retour au séjour", "sceneId": "sejour" }, { "pitch": -5, "yaw": 90, "type": "scene", "text": "Aller vers la cuisine", "sceneId": "cuisine" }, { "pitch": -5, "yaw": -90, "type": "scene", "text": "Aller vers l'escalier", "sceneId": "escalier" }] },
+                "cuisine": { "title": "Cuisine", "type": "equirectangular", "panorama": "cuisine.JPG", "hotSpots": [{ "pitch": -5, "yaw": 0, "type": "scene", "text": "Retour à l'entrée", "sceneId": "entree" }] },
+                "escalier": { "title": "Escalier", "type": "equirectangular", "panorama": "commun.JPG", "hotSpots": [{ "pitch": -5, "yaw": 0, "type": "scene", "text": "Retour à l'entrée", "sceneId": "entree" }, { "pitch": 15, "yaw": 45, "type": "scene", "text": "Monter à la chambre", "sceneId": "chambre" }] },
+                "chambre": { "title": "Chambre", "type": "equirectangular", "panorama": "chambre.JPG", "hotSpots": [{ "pitch": -15, "yaw": 0, "type": "scene", "text": "Descendre l'escalier", "sceneId": "escalier" }, { "pitch": -5, "yaw": 90, "type": "scene", "text": "Aller à la salle de bain", "sceneId": "sdb" }] },
+                "sdb": { "title": "Salle de bain", "type": "equirectangular", "panorama": "sdb.JPG", "hotSpots": [{ "pitch": -5, "yaw": 180, "type": "scene", "text": "Retour à la chambre", "sceneId": "chambre" }] }
             }
         });
     </script>
