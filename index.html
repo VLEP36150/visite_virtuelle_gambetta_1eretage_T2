@@ -3,30 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T2_place Gambetta 1er étage - Visite Virtuelle</title>
+    <title>23 place Gambetta 1er étage - Visite Virtuelle</title>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
     <style>
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; font-family: Arial, sans-serif; }
-        #titre-header { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 100; background: rgba(0, 0, 0, 0.7); color: white; padding: 10px 20px; border-radius: 5px; margin: 0; text-align: center; pointer-events: none; }
-        #panorama { width: 100%; height: 100%; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Titre en haut */
+        #titre-header {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            margin: 0;
+            text-align: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            pointer-events: none;
+        }
+
+        /* Conteneur de la visite */
+        #panorama {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Menu de navigation avec les boutons en bas */
+        #menu-navigation {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            max-width: 90%;
+            overflow-x: auto;
+        }
+
+        /* Style des boutons/icônes de pièces */
+        .btn-piece {
+            background: white;
+            color: #333;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        /* Effet au survol des boutons */
+        .btn-piece:hover {
+            background: #2196F3;
+            color: white;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
-    <h1 id="titre-header">T2_ 60m2_place Gambetta, 1er étage</h1>
+
+    <h1 id="titre-header">23 place Gambetta, 1er étage</h1>
+    
     <div id="panorama"></div>
+
+    <div id="menu-navigation">
+        <button class="btn-piece" onclick="changerDePiece('sejour')">🏠 Séjour</button>
+        <button class="btn-piece" onclick="changerDePiece('entree')">🚪 Entrée</button>
+        <button class="btn-piece" onclick="changerDePiece('cuisine')">🍳 Cuisine</button>
+        <button class="btn-piece" onclick="changerDePiece('escalier')">🪜 Escalier</button>
+        <button class="btn-piece" onclick="changerDePiece('chambre')">🛏️ Chambre</button>
+        <button class="btn-piece" onclick="changerDePiece('sdb')">🛁 Salle de bain</button>
+    </div>
+
     <script>
-        pannellum.viewer('panorama', {
-            "default": { "firstScene": "sejour", "author": "Visite Virtuelle", "sceneFadeDuration": 1000, "autoLoad": true },
+        // Initialisation de la visite virtuelle
+        var viewer = pannellum.viewer('panorama', {
+            "default": {
+                "firstScene": "sejour", // Photo d'accueil
+                "author": "Visite Virtuelle",
+                "sceneFadeDuration": 800,
+                "autoLoad": true,
+                "showControls": true
+            },
+
             "scenes": {
-                "sejour": { "title": "Séjour", "type": "equirectangular", "panorama": "sejour.JPG", "hotSpots": [{ "pitch": -5, "yaw": 45, "type": "scene", "text": "Aller vers l'entrée", "sceneId": "entree" }] },
-                "entree": { "title": "Entrée", "type": "equirectangular", "panorama": "commun.JPG", "hotSpots": [{ "pitch": -10, "yaw": 180, "type": "scene", "text": "Retour au séjour", "sceneId": "sejour" }, { "pitch": -5, "yaw": 90, "type": "scene", "text": "Aller vers la cuisine", "sceneId": "cuisine" }, { "pitch": -5, "yaw": -90, "type": "scene", "text": "Aller vers l'escalier", "sceneId": "escalier" }] },
-                "cuisine": { "title": "Cuisine", "type": "equirectangular", "panorama": "cuisine.JPG", "hotSpots": [{ "pitch": -5, "yaw": 0, "type": "scene", "text": "Retour à l'entrée", "sceneId": "entree" }] },
-                "escalier": { "title": "Escalier", "type": "equirectangular", "panorama": "commun.JPG", "hotSpots": [{ "pitch": -5, "yaw": 0, "type": "scene", "text": "Retour à l'entrée", "sceneId": "entree" }, { "pitch": 15, "yaw": 45, "type": "scene", "text": "Monter à la chambre", "sceneId": "chambre" }] },
-                "chambre": { "title": "Chambre", "type": "equirectangular", "panorama": "chambre.JPG", "hotSpots": [{ "pitch": -15, "yaw": 0, "type": "scene", "text": "Descendre l'escalier", "sceneId": "escalier" }, { "pitch": -5, "yaw": 90, "type": "scene", "text": "Aller à la salle de bain", "sceneId": "sdb" }] },
-                "sdb": { "title": "Salle de bain", "type": "equirectangular", "panorama": "sdb.JPG", "hotSpots": [{ "pitch": -5, "yaw": 180, "type": "scene", "text": "Retour à la chambre", "sceneId": "chambre" }] }
+                "sejour": {
+                    "title": "Séjour",
+                    "type": "equirectangular",
+                    "panorama": "sejour.JPG"
+                },
+                "entree": {
+                    "title": "Entrée",
+                    "type": "equirectangular",
+                    "panorama": "commun.JPG" // Prise en compte de votre fichier commun.JPG
+                },
+                "cuisine": {
+                    "title": "Cuisine",
+                    "type": "equirectangular",
+                    "panorama": "cuisine.JPG"
+                },
+                "escalier": {
+                    "title": "Escalier",
+                    "type": "equirectangular",
+                    "panorama": "escalier.JPG"
+                },
+                "chambre": {
+                    "title": "Chambre",
+                    "type": "equirectangular",
+                    "panorama": "chambre.JPG"
+                },
+                "sdb": {
+                    "title": "Salle de bain",
+                    "type": "equirectangular",
+                    "panorama": "sdb.JPG"
+                }
             }
         });
+
+        // Fonction pour changer de pièce au clic
+        function changerDePiece(idPiece) {
+            viewer.loadScene(idPiece);
+        }
     </script>
+
+</body>
+</html>
 </body>
 </html>
